@@ -162,7 +162,7 @@ func (col *Collection) SaveEdge(doc interface{}, from string, to string) error {
 	var res *nap.Response
 
 	if col.Type == 3 {
-		res, err = col.db.send("edge?collection="+col.Name+"&from="+from+"&to="+to, "", "POST", doc, &doc, &doc)
+		res, err = col.db.send("document?collection="+col.Name+"&from="+from+"&to="+to, "", "POST", doc, &doc, &doc)
 	} else {
 		return errors.New("Trying to save document into Edge-Collection")
 	}
